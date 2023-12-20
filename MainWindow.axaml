@@ -8,23 +8,29 @@
         MinWidth="900" MinHeight="450"
         x:Class="Abonados_del_betis.MainWindow"
         Title="Abonados_del_betis">
-    <StackPanel>
+    <!-- se define un StackPanel para mostar todos los datos -->
+    <StackPanel Margin="10">
+        <!-- se define un Grip con dos columnas para mostrar dos label -->
         <Grid ColumnDefinitions="Auto,Auto">
             <Label Grid.Column="0">Total de Socios:</Label> <TextBox Name="lblNumeroTotalSocio" Grid.Column="1">0</TextBox>
         </Grid>
         
+        <!-- se define un StackPanel de manera horizontal para mostrar todos los datos -->
         <StackPanel Margin="15" Orientation="Horizontal">
+            <!-- se define un Grid con una columna, para tener un espacio entre los objetos -->
             <Grid ColumnDefinitions="Auto">
                 <Label Width="70"/>
             </Grid>
+            <!-- se define un Grid con 3 columna y 7 filas -->
             <Grid ColumnDefinitions="Auto, Auto, Auto" RowDefinitions="*,*,*,*,*,*,*">
+                <!-- La columna 0 solo se utiliza para generar un espacio entre las columnas -->
                 <Label Grid.Column="0" Grid.Row="0" Height="40"/>
                 <Label Grid.Column="0" Grid.Row="1" Height="40"/>
                 <Label Grid.Column="0" Grid.Row="2" Height="40"/>
                 <Label Grid.Column="0" Grid.Row="3" Height="40"/>
                 <Label Grid.Column="0" Grid.Row="4" Height="40"/>
                 <Label Grid.Column="0" Grid.Row="5" Height="40"/>
-                
+                <!-- La columna 1 se utiliza para mostrar los valores de los label -->
                 <Label VerticalAlignment="Center" Grid.Column="1" Grid.Row="0">Numero de Socio: </Label>
                 <Label VerticalAlignment="Center"  Grid.Column="1" Grid.Row="1">Nombre del Socio: </Label>
                 <Label VerticalAlignment="Center"  Grid.Column="1" Grid.Row="2">Apellido socio: </Label>
@@ -32,7 +38,7 @@
                 <Label VerticalAlignment="Center"  Grid.Column="1" Grid.Row="4">Grada(N,S,P,F): </Label>
                 <Label VerticalAlignment="Center"  Grid.Column="1" Grid.Row="5">Costo socio: </Label>
                 <Label VerticalAlignment="Center" Grid.Column="1" Grid.Row="6">Realizo el pago:</Label>
-                
+                <!-- La columna 2 se utiliza para recoger y mostar los datos -->
                 <TextBox Name="txtNum" Grid.Column="2" Grid.Row="0" MaxWidth="300" Width="300"/>
                 <TextBox Name="txtNombre" Grid.Column="2" Grid.Row="1" MaxWidth="300" Width="300"/>
                 <TextBox Name="txtApellido" Grid.Column="2" Grid.Row="2" MaxWidth="300" Width="300"/>
@@ -41,17 +47,21 @@
                 <TextBox Name="txtPago" Grid.Column="2" Grid.Row="5" MaxWidth="300" Width="300"/>
                 <CheckBox Name="ckRealizoElPago" Grid.Column="2" Grid.Row="6"></CheckBox>
             </Grid>
-            
+            <!-- Se genera un nuevo StackPanel para mostar las imagenes y un Textbox para recoger el nombre -->
             <StackPanel Margin="5">
                 <Image Name="imagen" VerticalAlignment="Top" Height="230" Width="230"/>
+                <!-- Se genera un nuevo StackPanel para mostrar un label y un Textbox para recoger el nombre -->
                 <StackPanel Margin="5" Orientation="Horizontal">
                     <Label>Nombre imagen:</Label>
-                    <AutoCompleteBox Name="txtImagen" MaxWidth="120" Width="120"/>
+                    <TextBox Name="txtImagen" MaxWidth="120" Width="120"/>
                 </StackPanel>
             </StackPanel>
             
+            <!-- se define un StackPanel para mostrar los botones (comfirmar ,cancelar, modificar, cargar, guardar) -->
             <StackPanel>
+                <!-- se define un Grid con una columna y 8 filas, para mostrar los botones -->
                 <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*,*,*,*">
+                    <!-- Cada boton tienen un name y un click -->
                     <Button Margin="5" Grid.Column="0" Grid.Row="1" Name="butConfirmar" Click="ButConfirmar_OnClick">Confirmar</Button>
                     <Button Margin="5" Grid.Column="0" Grid.Row="2" Name="butCancelar" Click="ButCancelar_OnClick">Cancelar</Button>
                     <Label Grid.Column="0" Grid.Row="3" Height="20"></Label>
@@ -64,8 +74,11 @@
             
         </StackPanel>
         
+        <!-- se define un StackPanel para mostrar los botones (siguiente, anterior, crear, eliminar) -->
         <StackPanel Margin="25">
+            <!-- se define un Grid con 4 columna y una filas, para mostrar los botones -->
             <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*">
+                <!-- Cada boton tienen un name y un click -->
                 <Button Height="50" Width="150" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="0" Click="Anterior" Name="butAnterior">Anterior</Button>
                 <Button Height="50" Width="150" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Click="crear">Crear</Button>
                 <Button Height="50" Width="150" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" Click="Eliminar" Name="butEliminar">Eliminar</Button>

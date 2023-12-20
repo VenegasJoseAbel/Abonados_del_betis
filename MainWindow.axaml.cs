@@ -17,6 +17,7 @@ public partial class MainWindow : Window
         Socio = new List<Abonados>();
         leerFichero(); //llamo al metodo para leer.
         comprobarbotones(); //llamo a un metodo para activar/desactivar los botones anterior y siguiente
+        this.Closed += (sender, args) => gardarEnFichero(); //al cerrar la app se llama el metodo para gurdar los datos
     }
     
     //button Anterior
