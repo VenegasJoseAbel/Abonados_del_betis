@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="MainWindow.axaml" value="Abonados del betis.csproj" />
+        <entry key="MessageBox.axaml" value="Abonados del betis.csproj" />
       </map>
     </option>
   </component>

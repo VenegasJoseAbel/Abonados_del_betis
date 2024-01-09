@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Avalonia.Controls;
+using Avalonia.Dialogs;
 using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
 
@@ -225,11 +226,17 @@ public partial class MainWindow : Window
                 fichero.Write(Socio[i].tam); //guarda el tama�o de byte que tiene la imagen.
                 fichero.Write(Socio[i].imagenSocio);
             }
+            texto.Text = "Se han guardado los registros correctamente";
+            todo.IsVisible = false;
+            mensaje.IsVisible = true;
            // MessageBox.Show("Se han guardado los registros correctamente");
             fichero.Close(); //Cerramos el fichero.
         }
         catch (Exception ex)
         {
+            texto.Text = "No se puedo guardar";
+            todo.IsVisible = false;
+            mensaje.IsVisible = true;
            // MessageBox.Show("No se puedo guardar"); //Un mensaje en caso de error.
         }
     }
@@ -280,11 +287,18 @@ public partial class MainWindow : Window
                     Socio.Add(abonados); //A�ado mi nuevo registro.
                     MostrarActual();  //Muestro el actual.
                 }
+
+                texto.Text = "Se han añadido los registros correctamente";
+                todo.IsVisible = false;
+                mensaje.IsVisible = true;
                //MessageBox.Show("Se han a�adido los registros correctamente"); //Un mensaje para indicar que todo salio bien
                 Fichero2.Close(); //Cierro el Fichero.
             }
             catch (Exception ex)
             {
+                texto.Text = "No hay valores que leer en el fichero \no no se pudo abrir el fichero";
+                todo.IsVisible = false;
+                mensaje.IsVisible = true;
                 //MessageBox.Show("No hay valores que leer en el fichero \no no se pudo abrir el fichero"); //Un mensaje en caso de error.
             }
         }
@@ -317,5 +331,11 @@ public partial class MainWindow : Window
             butAnterior.IsEnabled = false;
             butSiguiente.IsEnabled = false;
         }
+    }
+
+    private void Volver_OnClick(object? sender, RoutedEventArgs e)
+    {
+        todo.IsVisible = true;
+        mensaje.IsVisible = false;
     }
 }

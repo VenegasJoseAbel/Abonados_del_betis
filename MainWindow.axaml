@@ -9,7 +9,9 @@
         x:Class="Abonados_del_betis.MainWindow"
         Title="Abonados_del_betis">
     <!-- se define un StackPanel para mostar todos los datos -->
-    <StackPanel Margin="10">
+    <Panel>
+    <Panel Name="todo" IsVisible="True">
+        <StackPanel Margin="10">
         <!-- se define un Grip con dos columnas para mostrar dos label -->
         <Grid ColumnDefinitions="Auto,Auto">
             <Label Grid.Column="0">Total de Socios:</Label> <TextBox Name="lblNumeroTotalSocio" Grid.Column="1">0</TextBox>
@@ -86,4 +88,15 @@
             </Grid>
         </StackPanel>
     </StackPanel>
+    </Panel>
+    
+    <Panel Name="mensaje" IsVisible="False">
+        <Grid RowDefinitions="*,*,*">
+            <!-- Cada boton tienen un name y un click -->
+            <TextBox Grid.Row="0"  Name="texto"></TextBox>
+            <Button Grid.Row="0"  Name="volver" Click="Volver_OnClick">Aceptar</Button>
+        </Grid>
+        
+    </Panel>
+    </Panel>
 </Window>
